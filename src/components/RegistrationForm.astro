@@ -1,0 +1,131 @@
+<form
+  data-netlify="true"
+  name="rsvp-form"
+  id="rsvp-form"
+  method="POST"
+  netlify-honeypot="bot-field"
+  onsubmit="handleSubmit"
+>
+  <input type="hidden" name="form-name" value="rsvp-form" />
+  <div class="field">
+    <label for="first-name">First name *</label>
+    <input required name="first-name" id="first-name" type="text" />
+  </div>
+  <div class="field">
+    <label for="last-name">Last name *</label>
+    <input required name="last-name" id="last-name" type="text" />
+  </div>
+  <div class="field">
+    <label for="nickname">Nickname *</label>
+    <input required name="nickname" id="nickname" type="text" />
+  </div>
+  <div class="" style="display: flex; gap: 16px; align-items: center;">
+    <label for="nickname">Would you like for us to use nickname?</label>
+    <input required name="nickname" id="nickname" type="checkbox" />
+  </div>
+  <div class="field">
+    <label for="email">Email *</label>
+    <input required name="email" id="email" type="email" />
+  </div>
+  <div class="field">
+    <label for="phone-number">Phone Number *</label>
+    <input required name="phone-number" id="phone-number" type="number" />
+  </div>
+  <div class="field">
+    <label for="comments">Battle Phrase</label>
+    <textarea name="comments" id="comments" rows={2}></textarea>
+  </div>
+  <div class="field">
+    <label for="comments">Anything else?</label>
+    <textarea name="comments" id="comments" rows={3}></textarea>
+  </div>
+  <button class="button" type="submit">SMASH</button>
+</form>
+
+<style>
+  .rsvp-form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    width: 100%;
+  }
+  form label {
+    font-size: 1.4em;
+  }
+  input,
+  textarea {
+    border: 4px solid var(--colors-secondary);
+    outline: thick double var(--colors-secondary);
+  }
+  form > button {
+    width: fit-content;
+    padding: 10px;
+    font-weight: 600;
+    font-size: 1.6em;
+    font-family: Wingdings;
+    color: var(--colors-tertiary);
+    background-color: var(--colors-secondary);
+    border: 4px ridge var(--colors-tertiary);
+  }
+  form select {
+    color: var(--background-color);
+    border-radius: 0;
+  }
+  form option {
+    color: var(--background-color);
+    border-radius: 0;
+  }
+  input[type="checkbox"] {
+    accent-color: var(--colors-tertiary);
+  }
+  .field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .disabled {
+    opacity: 0.5;
+  }
+  .hidden {
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+  }
+  @media (max-width: 600px) {
+    form {
+      width: 100%;
+    }
+    .rsvp-form-container > h2 {
+      align-self: baseline;
+    }
+  }
+</style>
+
+<script>
+  // @ts-ignore
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    const myForm = event.target;
+    const formData = new FormData(myForm);
+
+    await fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      // @ts-ignore
+      body: new URLSearchParams(formData).toString(),
+    });
+
+    window.location.reload();
+  };
+</script>

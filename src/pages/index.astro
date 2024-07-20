@@ -1,11 +1,71 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import RegistrationForm from "../components/RegistrationForm.astro";
+import Layout from "../layouts/Layout.astro";
 ---
 
-<Layout title="Samkough Smash Tournament 2024">
-	<main>
-		<p>under construction</p>
-	</main>
+<Layout>
+  <div class="wrapper">
+    <img src="/smash.png" alt="piranha plant vs dragon man" />
+    <div class="container">
+      <h1>Samkough Smash Tournament 2024</h1>
+      <p>
+        Are you ready?! For the comeback of the annual <strong
+          >2024 Super Smash Samkough Super Bonanza Tournament Extradonaire</strong
+        > ?!?!?!
+      </p>
+      <p>
+        You might be asking yourself, "Where have you been?", Well we're back,
+        we are right here !!!
+      </p>
+      <p>
+        We will be playing Super Smash Bros. Ultimate on a Nintendo Switch OLED.
+        A variety of controllers will be at the venue.
+      </p>
+      <p>
+        The tournament style will be double elimination. Only one character per
+        human being is allowed for the tournament.
+      </p>
+      <p>
+        Who are you going to main? Who are you going to play? We are eagerly
+        anticipating all the different types of players that will be showing up
+        !
+      </p>
+      <p>Fill out this form here to register for the tournament:</p>
+      <br />
+      <RegistrationForm />
+      <br />
+    </div>
+  </div>
 </Layout>
 
-
+<style>
+  .wrapper {
+    display: flex;
+    gap: 1em;
+    flex-direction: row-reverse;
+  }
+  .wrapper img {
+    flex: 1;
+  }
+  .container {
+    max-width: 500px;
+  }
+  h1 {
+    font-style: italic;
+    letter-spacing: 5px;
+    font-weight: 1000;
+    font-size: 3.2em;
+  }
+  p {
+    margin-top: 1em;
+    line-height: 1.8em;
+    font-size: 1.6em;
+  }
+  @media (max-width: 700px) {
+    .wrapper {
+      display: flex;
+      gap: 1em;
+      flex-direction: column;
+    }
+  }
+</style>
