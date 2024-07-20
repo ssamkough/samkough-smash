@@ -1,0 +1,46 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout>
+  <div class="wrapper">
+    <img src="/smash.png" alt="piranha plant vs dragon man" />
+    <div class="container">
+      <h2>you have succcessfully registered</h2>
+      <p>return to homepage: <a href="/">home page</a></p>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .wrapper {
+    display: flex;
+    gap: 1em;
+    flex-direction: row-reverse;
+  }
+  .wrapper img {
+    flex: 1;
+  }
+  .container {
+    max-width: 500px;
+  }
+  h1 {
+    font-style: italic;
+    letter-spacing: 5px;
+    font-weight: 1000;
+    font-size: 3.2em;
+  }
+  p {
+    margin-top: 1em;
+    line-height: 1.8em;
+    font-size: 1.6em;
+    font-weight: 600;
+  }
+  @media (max-width: 700px) {
+    .wrapper {
+      display: flex;
+      gap: 1em;
+      flex-direction: column;
+    }
+  }
+</style>
