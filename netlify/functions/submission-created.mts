@@ -1,10 +1,10 @@
 import type { Context } from "@netlify/functions";
+import { createClient } from "@supabase/supabase-js";
 
-const databaseUrl = Netlify.env.get("DATABASE_URL");
-const supabaseServiceApiKey = Netlify.env.get("SUPABASE_SERVICE_API_KEY");
+const databaseUrl = Netlify.env.get("DATABASE_URL") ?? "";
+const supabaseServiceApiKey = Netlify.env.get("SUPABASE_SERVICE_API_KEY") ?? "";
 
 // Connect to our database
-const { createClient } = require("@supabase/supabase-js");
 const supabase = createClient(databaseUrl, supabaseServiceApiKey);
 
 export default async (request: Request, context: Context) => {
