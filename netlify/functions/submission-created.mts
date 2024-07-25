@@ -8,8 +8,7 @@ const supabaseServiceApiKey = Netlify.env.get("SUPABASE_SERVICE_API_KEY") ?? "";
 const supabase = createClient(databaseUrl, supabaseServiceApiKey);
 
 export default async (request: Request, context: Context) => {
-  const { body } = request;
-  console.log("body", body);
+  console.log("request", request);
 
   // Insert a row
   const { data, error } = await supabase
