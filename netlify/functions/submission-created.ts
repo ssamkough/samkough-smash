@@ -19,7 +19,3 @@ export default async (request: Request, context: Context) => {
   // Did it work?
   console.log(data, error);
 };
-
-export const config = {
-  path: "/success",
-};
