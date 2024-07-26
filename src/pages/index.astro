@@ -12,7 +12,12 @@ import Layout from "../layouts/Layout.astro";
       <marquee>FRIDAY JULY 26</marquee>
       <br />
       <br />
-      <a href="#rsvp-form">REGISTER TO SMASH BELOW</a>
+      <!-- <a href="#rsvp-form">REGISTER TO SMASH BELOW</a> -->
+      <a
+        id="bracket-link"
+        href="https://www.start.gg/tournament/samkough-smash-tournament-2024/event/samkough-smash-tournament-2024/overview"
+        >https://www.start.gg/tournament/samkough-smash-tournament-2024</a
+      >
       <br />
       <p>
         Are you ready?! ARE YOU ?! For the comeback of the annual <strong
@@ -76,7 +81,8 @@ import Layout from "../layouts/Layout.astro";
     font-size: 1.6em;
     font-family: comic sans MS;
   }
-  a[href="#rsvp-form"] {
+  a[href="#rsvp-form"],
+  #bracket-link {
     color: var(--colors-tertiary);
     background-color: var(--colors-secondary);
     font-size: 2em;
