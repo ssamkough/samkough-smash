@@ -1,0 +1,50 @@
+---
+import "./../styles/form.css";
+import "./../scripts/form.js";
+---
+
+<form
+  data-netlify="true"
+  name="interest-form"
+  id="interest-form"
+  method="POST"
+  netlify-honeypot="bot-field"
+  onsubmit="handleSubmit"
+  action="/success"
+>
+  <input type="hidden" name="form-name" value="interest-form" />
+  <div class="field">
+    <label for="name">Name *</label>
+    <input required name="name" id="name" type="text" />
+  </div>
+  <div class="field">
+    <label for="interest">Are you interested in smashing? *</label>
+    <input
+      required
+      name="interest"
+      id="interest"
+      type="checkbox"
+      style="width: fit-content;"
+    />
+  </div>
+  <button class="button" type="submit">SMASH</button>
+</form>
+
+<script>
+  // @ts-ignore
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    const myForm = event.target;
+    const formData = new FormData(myForm);
+
+    await fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      // @ts-ignore
+      body: new URLSearchParams(formData).toString(),
+    });
+
+    window.location.assign(`${window.location}success`);
+  };
+</script>
